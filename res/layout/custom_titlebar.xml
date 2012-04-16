@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true" >
+
+    <ImageView
+        android:id="@+id/headerSmallLogoImgVw"
+        android:layout_width="40dip"
+        android:layout_height="20dip"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="3dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="3dip"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_launcher" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/headerTitleTxtVw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/headerSmallLogoImgVw"
+        android:layout_centerInParent="true"
+        android:text="Title" >
+    </TextView>
+
+</RelativeLayout>

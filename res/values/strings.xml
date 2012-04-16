@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Virid Directory</string>    
+    <string name="splashText">
+	  <![CDATA[
+	    <font color="#beda23">be </font>
+	    <font color="#000000">extraordinary</font>
+	  ]]>
+	</string>
+    
+</resources>
