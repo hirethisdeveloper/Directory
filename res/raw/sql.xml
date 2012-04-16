@@ -1,7 +1,25 @@
 <sql>
 
+    <!-- VIRID GLOBAL TABLE CREATORS, TO BE INCLUDED IN ALL VIRID APPS -->
     <statement>
-CREATE TABLE IF NOT EXISTS employee (
+        CREATE TABLE IF NOT EXISTS viridAppOptions (
+        	_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        	fieldName VARCHAR(50),
+        	fieldValue VARCHAR(50),
+        	appId INTEGER        
+        )      
+    </statement>
+    <statement>
+        CREATE TABLE IF NOT EXISTS viridApps (
+        	_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        	appName VARCHAR(50),
+        	appVersion VARCHAR(10)
+        )
+    </statement>
+
+    <!-- APP SPECIFIC INSTRUCTIONS -->
+    <statement>
+	CREATE TABLE IF NOT EXISTS viridEmployee (
         _id INTEGER PRIMARY KEY AUTOINCREMENT, 
         firstName VARCHAR(50), 
         lastName VARCHAR(50), 
@@ -15,21 +33,20 @@ CREATE TABLE IF NOT EXISTS employee (
         aim VARCHAR(50),
         msn VARCHAR(50))
     </statement>
-    
     <statement>
-		INSERT INTO employee VALUES ("1", "Steve", "Deller", "president/ceo", "Development", "0", "703.689.2121", "110", "", "sdeller@virid.com", "stevenrdeller", "stevedeller@hotmail.com")
+		INSERT INTO viridEmployee VALUES ("1", "Steve", "Deller", "president/ceo", "Development", "0", "703.689.2121", "110", "", "sdeller@virid.com", "stevenrdeller", "stevedeller@hotmail.com")
     </statement>
-    <statement>		
-        INSERT INTO employee VALUES ("2", "Rob", "Fredley", "vp/creative", "Creative", "1", "703.689.2121", "109", "", "rfredley@virid.com", "rfredley", "")
+    <statement>
+        INSERT INTO viridEmployee VALUES ("2", "Rob", "Fredley", "vp/creative", "Creative", "1", "703.689.2121", "109", "", "rfredley@virid.com", "rfredley", "")
     </statement>
-    <statement>		
-        INSERT INTO employee VALUES ("3", "Bill", "Kern", "director of business development", "Sales", "1", "703.689.2121", "112", "", "bkern@virid.com", "billvirid", "billkern@live.com")
+    <statement>
+        INSERT INTO viridEmployee VALUES ("3", "Bill", "Kern", "director of business development", "Sales", "1", "703.689.2121", "112", "", "bkern@virid.com", "billvirid", "billkern@live.com")
     </statement>
-    <statement>		
-        INSERT INTO employee VALUES ("4", "Amanda", "Ballish", "sr. account manager", "Account Management", "1", "703.689.2121", "104", "", "aballish@virid.com", "aballish", "")
+    <statement>
+        INSERT INTO viridEmployee VALUES ("4", "Amanda", "Ballish", "sr. account manager", "Account Management", "1", "703.689.2121", "104", "", "aballish@virid.com", "aballish", "")
     </statement>
-    <statement>		
-        INSERT INTO employee VALUES ("5", "Lauren", "Shanta", "sr. product manager", "Product Management", "1", "703.689.2121", "121", "", "lshanta@virid.com", "laurenshanta", "")
+    <statement>
+        INSERT INTO viridEmployee VALUES ("5", "Lauren", "Shanta", "sr. product manager", "Product Management", "1", "703.689.2121", "121", "", "lshanta@virid.com", "laurenshanta", "")
     </statement>
-    
+
 </sql>

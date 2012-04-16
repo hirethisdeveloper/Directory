@@ -71,7 +71,7 @@ public class ViridDirectoryActivity extends ListActivity {
 		// || is the concatenation operation in SQLite
 		cursor = db
 				.rawQuery(
-						"SELECT _id, firstName, lastName, title, \" - \" || department as department FROM employee WHERE firstName || ' ' || lastName LIKE ?",
+						"SELECT _id, firstName, lastName, title, \" - \" || department as department FROM viridEmployee WHERE firstName || ' ' || lastName LIKE ?",
 						new String[] { "%" + searchText.getText().toString()
 								+ "%" });
 		adapter = new SimpleCursorAdapter(this, R.layout.employee_list_item,

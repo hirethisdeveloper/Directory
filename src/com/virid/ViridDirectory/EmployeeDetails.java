@@ -35,7 +35,7 @@ public class EmployeeDetails extends ListActivity {
 		SQLiteDatabase db = (new DatabaseHelper(this)).getWritableDatabase();
 		Cursor cursor = db
 				.rawQuery(
-						"SELECT \"(\" || emp.department || \")\" as department, emp.aim, emp.msn, emp._id, emp.firstName, emp.lastName, emp.title, emp.officePhone, emp.officePhoneExt, emp.cellPhone, emp.email, emp.managerId, mgr.firstName managerFirstName, mgr.lastName managerLastName FROM employee emp LEFT OUTER JOIN employee mgr ON emp.managerId = mgr._id WHERE emp._id = ?",
+						"SELECT \"(\" || emp.department || \")\" as department, emp.aim, emp.msn, emp._id, emp.firstName, emp.lastName, emp.title, emp.officePhone, emp.officePhoneExt, emp.cellPhone, emp.email, emp.managerId, mgr.firstName managerFirstName, mgr.lastName managerLastName FROM viridEmployee emp LEFT OUTER JOIN employee mgr ON emp.managerId = mgr._id WHERE emp._id = ?",
 						new String[] { "" + employeeId });
 
 		if (cursor.getCount() == 1) {
@@ -114,7 +114,7 @@ public class EmployeeDetails extends ListActivity {
 			}
 
 			cursor = db.rawQuery(
-					"SELECT count(*) FROM employee WHERE managerId = ?",
+					"SELECT count(*) FROM viridEmployee WHERE managerId = ?",
 					new String[] { "" + employeeId });
 			cursor.moveToFirst();
 			int count = cursor.getInt(0);

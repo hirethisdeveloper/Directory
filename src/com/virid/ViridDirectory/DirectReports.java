@@ -28,7 +28,7 @@ public class DirectReports extends ListActivity {
 
 		Cursor cursor = db
 				.rawQuery(
-						"SELECT _id, firstName, lastName, title FROM employee WHERE _id = ?",
+						"SELECT _id, firstName, lastName, title FROM viridEmployee WHERE _id = ?",
 						new String[] { "" + employeeId });
 
 		if (cursor.getCount() != 1) {
@@ -48,7 +48,7 @@ public class DirectReports extends ListActivity {
 
 		cursor = db
 				.rawQuery(
-						"SELECT \" - \" || department as department, _id, firstName, lastName, title, officePhone, cellPhone, email FROM employee WHERE managerId = ?",
+						"SELECT \" - \" || department as department, _id, firstName, lastName, title, officePhone, cellPhone, email FROM viridEmployee WHERE managerId = ?",
 						new String[] { "" + employeeId });
 		adapter = new SimpleCursorAdapter(this, R.layout.employee_list_item,
 				cursor, new String[] { "firstName", "lastName", "title", "department" },

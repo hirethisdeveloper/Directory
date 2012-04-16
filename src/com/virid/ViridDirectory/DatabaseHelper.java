@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-        public static final String DATABASE_NAME = "employee_directory2";
+        public static final String DATABASE_NAME = "virid";
         
         protected Context context;
         
@@ -44,7 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         		Toast.makeText(context, "Database Upgraded", 2000).show();
-                db.execSQL("DROP TABLE IF EXISTS employees");
+                db.execSQL("DROP TABLE IF EXISTS viridEmployees");
                 onCreate(db);
         }
         
