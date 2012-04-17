@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -18,6 +19,12 @@ import android.widget.TextView;
 
 public class EmployeeDetails extends ListActivity {
 
+	private static final int MENU_NEW_CONTACT = 0;
+	private static final int MENU_ATTACH_CONTACT = 1;
+	private static final int MENU_EDIT_CONTACT = 2;
+	private static final int MENU_REMOVE_CONTACT = 3;
+	private static final int MENU_HELP = 4;
+	
 	protected TextView employeeNameText;
 	protected TextView titleText;
 	protected TextView deptText;
@@ -35,7 +42,7 @@ public class EmployeeDetails extends ListActivity {
 		SQLiteDatabase db = (new DatabaseHelper(this)).getWritableDatabase();
 		Cursor cursor = db
 				.rawQuery(
-						"SELECT \"(\" || emp.department || \")\" as department, emp.aim, emp.msn, emp._id, emp.firstName, emp.lastName, emp.title, emp.officePhone, emp.officePhoneExt, emp.cellPhone, emp.email, emp.managerId, mgr.firstName managerFirstName, mgr.lastName managerLastName FROM viridEmployee emp LEFT OUTER JOIN employee mgr ON emp.managerId = mgr._id WHERE emp._id = ?",
+						"SELECT \"(\" || emp.department || \")\" as department, emp.aim, emp.msn, emp._id, emp.firstName, emp.lastName, emp.title, emp.officePhone, emp.officePhoneExt, emp.cellPhone, emp.email, emp.managerId, mgr.firstName managerFirstName, mgr.lastName managerLastName FROM viridEmployee emp LEFT OUTER JOIN viridEmployee mgr ON emp.managerId = mgr._id WHERE emp._id = ?",
 						new String[] { "" + employeeId });
 
 		if (cursor.getCount() == 1) {
@@ -192,4 +199,14 @@ public class EmployeeDetails extends ListActivity {
 
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		menu.add(0, MENU_NEW_CONTACT, 0, "New Contact").setIcon(R.drawable.add);
+		menu.add(0, MENU_ATTACH_CONTACT, 1, "Attach Contact").setIcon(R.drawable.add);
+		menu.add(0, MENU_EDIT_CONTACT, 2, "Edit Contact").setIcon(R.drawable.edit);
+		menu.add(0, MENU_REMOVE_CONTACT, 3, "Remove Contact").setIcon(R.drawable.delete);
+		menu.add(0, MENU_HELP, 4, "Help").setIcon(R.drawable.help);
+	    return true;
+	}
+	
 }

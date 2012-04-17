@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/newContactTextTop"
+            android:layout_width="257dp"
+            android:layout_height="31dp"
+            android:text="@string/newContactTextTop"
+            android:textSize="18dp" />
+
+        <!-- FIELDS -->
+
+        <EditText
+            android:id="@+id/NewContact_FirstName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/NewContact_FirstNameHint"
+            android:inputType="textCapWords" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/NewContact_LastName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/NewContact_LastNameHint"
+            android:inputType="textCapWords" >
+        </EditText>
+
+        <Spinner
+            android:id="@+id/NewContact_Department"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/DepartmentList"
+            android:prompt="@string/departmentListPrompt" >
+        </Spinner>
+
+        <EditText
+            android:id="@+id/NewContact_Title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/NewContact_TitleHint"
+            android:inputType="text" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/NewContact_OfficePhone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/NewContact_OfficePhoneHint"
+            android:inputType="phone" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/NewContact_OfficePhoneExt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/NewContact_OfficePhoneExtHint"
+            android:inputType="phone" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/NewContact_CellPhone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/NewContact_CellPhoneHint"
+            android:inputType="phone" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/NewContact_Email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/NewContact_EmailHint"
+            android:inputType="textEmailAddress" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/NewContact_AIM"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/NewContact_AIMHint"
+            android:inputType="text" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/NewContact_MSN"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/NewContact_MSNHint"
+            android:inputType="textEmailAddress" >
+        </EditText>
+
+        <Button
+            android:id="@+id/NewContact_BTNSave"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="newContactSave"
+            android:text="@string/NewContact_BTNSave" >
+        </Button>
+    </LinearLayout>
+
+</ScrollView>

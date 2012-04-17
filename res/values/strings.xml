@@ -8,5 +8,39 @@
 	    <font color="#000000">extraordinary</font>
 	  ]]>
 	</string>
+	
+    <string name="menu_add_contact">Add Contact</string>
+    <string name="menu_edit_contact">Edit Contact</string>
+    <string name="menu_remove_contact">Remove Contact</string>
+    <string name="menu_help">Help</string>
+    
+    
+    <!-- NEW CONTACT FORM -->
+    <string name="newContactTextTop">Create new contact..</string>
+    <string name="NewContact_FirstNameHint">First Name</string>
+    <string name="NewContact_LastNameHint">Last Name</string>
+    
+    	<!-- Department Spinner options -->
+    	<string name="departmentListPrompt">Choose department..</string>
+    	<string name="DepartmentType1">Account Management</string>
+    	<string name="DepartmentType2">Creative</string>
+    	<string name="DepartmentType3">Creative/Technical</string>
+    	<string name="DepartmentType4">Development</string>
+    	<string name="DepartmentType5">Human Resources</string>
+    	<string name="DepartmentType6">Product Management</string>
+    	<string name="DepartmentType7">Sales</string>
+    	<!--  // department spinner options -->
+    
+    <string name="NewContact_TitleHint">Job Title</string>
+    <string name="NewContact_OfficePhoneHint">Office Phone Number</string>
+    <string name="NewContact_OfficePhoneExtHint">Office Phone Extension</string>
+    <string name="NewContact_CellPhoneHint">Cell Phone</string>
+    <string name="NewContact_EmailHint">Email Address</string>
+    <string name="NewContact_AIMHint">AIM Handle</string>
+    <string name="NewContact_MSNHint">MSN Handle</string>
+    <string name="NewContact_BTNSave">Save new contact</string>
+    
+    
+    
     
 </resources>
