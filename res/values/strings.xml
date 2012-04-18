@@ -38,6 +38,7 @@
     <string name="NewContact_EmailHint">Email Address</string>
     <string name="NewContact_AIMHint">AIM Handle</string>
     <string name="NewContact_MSNHint">MSN Handle</string>
+    <string name="NewContact_isManager">Contact is managerial?</string>
     <string name="NewContact_BTNSave">Save new contact</string>
     
     

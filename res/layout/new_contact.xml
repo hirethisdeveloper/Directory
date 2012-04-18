@@ -99,6 +99,13 @@
             android:inputType="textEmailAddress" >
         </EditText>
 
+        <CheckBox
+            android:id="@+id/NewContact_isManager"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/NewContact_isManager" >
+        </CheckBox>
+
         <Button
             android:id="@+id/NewContact_BTNSave"
             android:layout_width="fill_parent"

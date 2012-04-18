@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ public class NewContact extends Activity {
 	private EditText NewContact_Email;
 	private EditText NewContact_AIM;
 	private EditText NewContact_MSN;
+	private CheckBox NewContact_isManager;
 	private String defaultOfficePhone = "703.689.2121";
 
 	public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class NewContact extends Activity {
 		String email = NewContact_Email.getText().toString();
 		String aim = NewContact_AIM.getText().toString();
 		String msn = NewContact_MSN.getText().toString();
+		boolean isManager = NewContact_isManager.isChecked();
 		String department = NewContact_Department.getSelectedItem().toString();
 
 		if (officePhone.length() < 2) { officePhone = defaultOfficePhone; }
@@ -66,20 +69,12 @@ public class NewContact extends Activity {
 
 		// USER NOT FOUND, PROCEED TO CREATE RECORD
 		else {
-			// ContentValues cv = new ContentValues();
-			// cv.put(firstName, firstName);
-			// cv.put(lastName, lastName);
-			// cv.put(title, title);
-			// cv.put(department, department);
-			// cv.put(officePhone, officePhone);
-			// cv.put(officePhoneExt, officePhoneExt);
-			// cv.put(cellPhone, cellPhone);
-			// cv.put(email, email);
-			// cv.put(aim, aim);
-			// cv.put(msn, msn);
-			// db.insert("viridEmployee", null, cv);
 
-			String sql = "INSERT INTO viridEmployee (firstName, lastName, title, department, officePhone, officePhoneExt, cellPhone, email, aim, msn) VALUES ('"
+			int isManagerInt = 0;
+			if (isManager == true) { isManagerInt = 1; }
+			
+			
+			String sql = "INSERT INTO viridEmployee (firstName, lastName, title, department, officePhone, isManager, managerId, officePhoneExt, cellPhone, email, aim, msn) VALUES ('"
 					+ firstName
 					+ "', '"
 					+ lastName
@@ -87,10 +82,14 @@ public class NewContact extends Activity {
 					+ title
 					+ "', '"
 					+ department
+					+ "', '"
+					+ isManagerInt
 					+ "', '0', '"
 					+ officePhone
 					+ "', '"
 					+ officePhoneExt
+					+ "', '"
+					+ cellPhone
 					+ "', '"
 					+ email
 					+ "', '"
@@ -137,6 +136,7 @@ public class NewContact extends Activity {
 		NewContact_AIM = (EditText) findViewById(R.id.NewContact_AIM);
 		NewContact_MSN = (EditText) findViewById(R.id.NewContact_MSN);
 		NewContact_Department = (Spinner) findViewById(R.id.NewContact_Department);
+		NewContact_isManager = (CheckBox) findViewById(R.id.NewContact_isManager);
 		NewContact_BTNSave = (Button) findViewById(R.id.NewContact_BTNSave);
 	}
 
