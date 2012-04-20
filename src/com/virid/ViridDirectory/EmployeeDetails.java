@@ -42,7 +42,7 @@ public class EmployeeDetails extends ListActivity {
 		SQLiteDatabase db = (new DatabaseHelper(this)).getWritableDatabase();
 		Cursor cursor = db
 				.rawQuery(
-						"SELECT \"(\" || emp.department || \")\" as department, emp.aim, emp.msn, emp._id, emp.firstName, emp.lastName, emp.title, emp.officePhone, emp.officePhoneExt, emp.cellPhone, emp.email, emp.managerId, mgr.firstName managerFirstName, mgr.lastName managerLastName FROM viridEmployee emp LEFT OUTER JOIN viridEmployee mgr ON emp.managerId = mgr._id WHERE emp._id = ?",
+						"SELECT \"(\" || emp.department || \")\" as department, emp.isManager, emp.aim, emp.msn, emp._id, emp.firstName, emp.lastName, emp.title, emp.officePhone, emp.officePhoneExt, emp.cellPhone, emp.email, emp.managerId, mgr.firstName managerFirstName, mgr.lastName managerLastName FROM viridEmployee emp LEFT OUTER JOIN viridEmployee mgr ON emp.managerId = mgr._id WHERE emp._id = ?",
 						new String[] { "" + employeeId });
 
 		if (cursor.getCount() == 1) {
@@ -54,12 +54,18 @@ public class EmployeeDetails extends ListActivity {
 					+ " "
 					+ cursor.getString(cursor.getColumnIndex("lastName")));
 
+			String mgrText = "";
+			String isManager = cursor.getString(cursor
+					.getColumnIndex("isManager"));
+			if (isManager == "1") {
+				mgrText = " - [manager]" + isManager;			
+			}
+			
 			titleText = (TextView) findViewById(R.id.title);
 			titleText.setText(cursor.getString(cursor.getColumnIndex("title")));
 
 			deptText = (TextView) findViewById(R.id.department);
-			deptText.setText(cursor.getString(cursor
-					.getColumnIndex("department")));
+			deptText.setText(cursor.getString(cursor.getColumnIndex("department")) + mgrText);
 
 			actions = new ArrayList<EmployeeAction>();
 

@@ -1,7 +1,6 @@
 package com.virid.ViridDirectory;
 
 import android.app.Activity;
-import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -74,7 +73,7 @@ public class NewContact extends Activity {
 			if (isManager == true) { isManagerInt = 1; }
 			
 			
-			String sql = "INSERT INTO viridEmployee (firstName, lastName, title, department, officePhone, isManager, managerId, officePhoneExt, cellPhone, email, aim, msn) VALUES ('"
+			String sql = "INSERT INTO viridEmployee (firstName, lastName, title, department, isManager, managerId, officePhone, officePhoneExt, cellPhone, email, aim, msn) VALUES ('"
 					+ firstName
 					+ "', '"
 					+ lastName

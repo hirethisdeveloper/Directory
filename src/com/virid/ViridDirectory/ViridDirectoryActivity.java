@@ -16,11 +16,13 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ViridDirectoryActivity extends ListActivity {
 
 	private static final int MENU_NEW_CONTACT = 0;
 	private static final int MENU_HELP = 1;
+	private static final int MENU_WIPEDB = 2;
 	protected EditText searchText;
 	protected SQLiteDatabase db;
 	protected Cursor cursor;
@@ -56,7 +58,8 @@ public class ViridDirectoryActivity extends ListActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		menu.add(0, MENU_NEW_CONTACT, 0, "New Contact").setIcon(R.drawable.add);
-		menu.add(0, MENU_HELP, 3, "Help").setIcon(R.drawable.help);
+		menu.add(0, MENU_HELP, 1, "Help").setIcon(R.drawable.help);
+		menu.add(0, MENU_WIPEDB, 2, "Clear Database");
 		return true;
 	}
 
@@ -68,6 +71,13 @@ public class ViridDirectoryActivity extends ListActivity {
 			case MENU_NEW_CONTACT:
 				intent = new Intent(this, NewContact.class);
 				startActivity(intent);
+				break;
+//			case MENU_HELP:
+//				intent = new Intent(this, Help.class);
+//				startActivity(intent);
+//				break;
+			case MENU_WIPEDB:
+				wipeDatabase();
 				break;
 		}
 		return false;
@@ -149,5 +159,14 @@ public class ViridDirectoryActivity extends ListActivity {
 		public boolean showSplashScreen = false;
 		// Your other important fields here
 	}
+	
+	
+	
+	private void wipeDatabase() {		
+		db.delete("viridEmployee", null, null);
+		Toast.makeText(getApplicationContext(), "Database cleared.", Toast.LENGTH_LONG);
+	}
+	
+	
 
 }
